@@ -1,8 +1,26 @@
-Раздать инет:
+------------------------------------------------------------------------------------Раздать инет:
 table inet my_nat {
         chain my_masquerade {
         type nat hook postrouting priority srcnat;
         oifname "enp0s3" masquerade
         }
 }
-
+------------------------------------------------------------------------------------GRE туннель:
+#!/bin/bash
+ip tunnel add tun0 mode gre local 150.150.150.2 remote 100.100.100.2
+ip addr add 10.5.5.2/30 dev tun0
+ip link set up tun0
+ip route add 10.10.10.0/24 via 10.5.5.1
+------------------------------------------------------------------------------------IPSEC:
+conn vpn
+        auto=start
+        type=tunnel
+        authby=secret
+        legt=150.150.150.2
+        right=100.100.100.2
+        leftsubnet=0.0.0.0/0
+        rightsubnet=0.0.0.0/0
+        leftprotoport=gre
+        rightprotoport=gre
+        ike=aes128-sha256-modp3072
+        esp=aes128-sha256
