@@ -27,5 +27,8 @@ conn vpn
         esp=aes128-sha256
 vim /etc/strongswan/ipsec.secrets
 100.100.100.10 150.150.150.10 : PSK "P@ssw0rd"
-------------------------------------------------------------------------------------DNS:
+------------------------------------------------------------------------------------FREEIPA:
+hostnamectl set-hostname isp.au.team ; exec bash (Не забыть на всех машинах)
+apt-get install freeipa-client libsss_sudo krb5-kinit libbind zip task-auth-freeipa -y                                                bind-utils 
+apt-get install freeipa-server freeipa-server-dns libsss_sudo krb5-kinit libbind zip task-auth-freeipa -y  (для сервачка)
 
