@@ -32,3 +32,5 @@ hostnamectl set-hostname isp.au.team ; exec bash (Не забыть на все�
 apt-get install freeipa-client libsss_sudo krb5-kinit libbind zip task-auth-freeipa -y                                                bind-utils 
 apt-get install freeipa-server freeipa-server-dns libsss_sudo krb5-kinit libbind zip task-auth-freeipa -y  (для сервачка)
 
+https://itproblog.ru/установка-freeipa-на-альт-сервер-10/?ysclid=m0valoc7zl704476530
+
