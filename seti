@@ -1,3 +1,4 @@
+https://disk.yandex.ru/d/DGfoOGW1Nv0C2Q
 ------------------------------------------------------------------------------------Раздать инет:
 table inet my_nat {
         chain my_masquerade {
@@ -16,7 +17,7 @@ conn vpn
         auto=start
         type=tunnel
         authby=secret
-        legt=150.150.150.2
+        left=150.150.150.2
         right=100.100.100.2
         leftsubnet=0.0.0.0/0
         rightsubnet=0.0.0.0/0
@@ -24,3 +25,7 @@ conn vpn
         rightprotoport=gre
         ike=aes128-sha256-modp3072
         esp=aes128-sha256
+vim /etc/strongswan/ipsec.secrets
+100.100.100.10 150.150.150.10 : PSK "P@ssw0rd"
+------------------------------------------------------------------------------------DNS:
+
